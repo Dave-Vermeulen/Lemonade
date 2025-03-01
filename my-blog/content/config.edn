@@ -1,7 +1,7 @@
 {:site-title                   "Lemonade"
  :author                       "Dawūd Vermeulen"
  :description                  "A roadmap to my journey"
- :site-url                     "http://blogawesome.com/"
+ :site-url                     "http://localhost:8000/"
  :blog-post-template           "post-template.html"
  :post-root                    "posts"
  :page-root                    "pages"
@@ -19,17 +19,14 @@
  :sass-src                     []
  :sass-path                    "sass"
  :theme                        "nucleus"
-    :css                          [
-                                    ;; 1. Nucleus theme's base CSS files (from themes/nucleus/css/)
-                                "reset.css"         ; Reset browser defaults
-                                "typography.css"    ; Fonts and text styles
-                                "menu.css"          ; Navigation styling
-                                "styles.css" 
-                                "buttons.css"      ; Button components
-                                "css/style.css"         ; Core layout
-
-                                    ;; 2. YOUR custom CSS (overrides theme)
-                                "css/custom.css"        ; Your creative styles
+    :css                        [
+                                "themes/nucleus/css/reset.css"
+                                "themes/nucleus/css/typography.css"
+                                "themes/nucleus/css/menu.css"
+                                "themes/nucleus/css/styles.css"
+                                "themes/nucleus/css/buttons.css"
+                                "themes/nucleus/css/style.css"
+                                "css/custom.css"         ; Core layout
                                 ]
  :resources                    ["img"]
  :keep-files                   [".git"]

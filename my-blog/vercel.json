@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "public/blog/**/*",
+      "use": "@vercel/static"
+    }
+  ],
+  "build": {
+    "env": {
+      "JAVA_HOME": "/usr/lib/jvm/java-8-openjdk-amd64"
+    }
+  },
+  "installCommand": "curl -O https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein && chmod +x lein && ./lein"
+}
+

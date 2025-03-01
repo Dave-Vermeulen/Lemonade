@@ -1,3 +1,24 @@
+body {
+    color: #011936; /* Deep blue-black for text */
+    line-height: 1.7; /* More breathing space */
+  }
+  
+  h1, h2, h3 {
+    color: #465362; /* Soft slate for headings */
+    border-bottom: 2px solid #f9dc5c; /* Sunshine yellow underline */
+  }
+  
+  a {
+    color: #ed254e; /* Vibrant red for links */
+  }
+  
+  code {
+    background: #011936; /* Midnight background for code */
+    color: #f4fffd; /* Mint cream text */
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+  }
+  
 .textleft {
     text-align: left;
 }

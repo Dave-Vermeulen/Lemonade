@@ -2,6 +2,7 @@
     position: relative;
     display: inline-block;
     padding: 7px 12px;
+    background-color: #ed254e !important; /* Bold red buttons */
     margin: 0;
     width: auto;
     font-family: "Montserrat";
@@ -11,6 +12,7 @@
     cursor: pointer;
     background: none;
     border: none;
+    border-radius: 25px;
     outline: none;
     text-align: left;
     letter-spacing: 2px;
@@ -39,8 +41,8 @@
 }
 
 .button:hover {
-    background: #A71E2E;
-    color: #FFF !important;
+    background-color: #f9dc5c !important; /* Highlights */
+    color: #011936 !important;
 }
 
 .button:active {

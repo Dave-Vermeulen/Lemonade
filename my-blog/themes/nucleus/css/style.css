@@ -96,6 +96,9 @@ img.imgfull {
     z-index: 2;
     width: 100%;
     padding: 0 30px;
+    max-width: 800px;
+    box-shadow: 0 0 15px rgba(1, 25, 54, 0.1);
+    background-color: #f4fffd;
     min-width: 280px;
     line-height: 26px;
 }

@@ -19,10 +19,23 @@
  :sass-src                     []
  :sass-path                    "sass"
  :theme                        "nucleus"
+    :css                          [
+                                    ;; 1. Nucleus theme's base CSS files (from themes/nucleus/css/)
+                                "reset.css"         ; Reset browser defaults
+                                "typography.css"    ; Fonts and text styles
+                                "menu.css"          ; Navigation styling
+                                "styles.css" 
+                                "buttons.css"      ; Button components
+                                "css/style.css"         ; Core layout
+
+                                    ;; 2. YOUR custom CSS (overrides theme)
+                                "css/custom.css"        ; Your creative styles
+                                ]
  :resources                    ["img"]
  :keep-files                   [".git"]
  :disqus?                      false
  :disqus-shortname             ""
+ :js                           ["js/highlight.pack.js"]
  :ignored-files                [#"\.#.*" #".*\.swp$"]
  :previews?                    false
  :posts-per-page               5
@@ -34,7 +47,7 @@
  :pages                        [
                                 {:title "Home" :uri "/"}
                                 {:title "Portfolio" :uri "https://dawudvermeulen.vercel.app/"}
-                                {:title "About" :uri "/about.html"}
+                                {:title "Archives" :uri "/archives.html"}
                                ]
  :description-include-elements #{:p :h1 :h2 :h3 :h4 :h5 :h6}
  :debug?                       false

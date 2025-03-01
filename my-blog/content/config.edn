@@ -1,7 +1,7 @@
 {:site-title                   "Lemonade"
  :author                       "Dawūd Vermeulen"
  :description                  "A roadmap to my journey"
- :site-url                     "http://localhost:8000/"
+ :site-url                     "https://lemonadeblog.vercel.app/"
  :blog-post-template           "post-template.html"
  :post-root                    "posts"
  :page-root                    "pages"

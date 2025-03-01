@@ -6,7 +6,11 @@
 
 A modern static blog built with Clojure and Cryogen, featuring a custom-designed interface with bold colors and professional styling. Perfect for developers who want a minimalist yet expressive platform.
 
-![Blog Preview](public/images/blog-preview.png) <!-- Add actual screenshot later -->
+   🔫  📒  💻
+"This is my rifle. There are many like it, but this one is mine."
+
+
+![Blog Preview](public/images/blog-preview.png) <!-- Add actual screenshot -->
 
 ## Features ✨
 

@@ -1,7 +1,7 @@
 {:site-title                   "Lemonade"
  :author                       "Dawūd Vermeulen"
  :description                  "A roadmap to my journey"
- :site-url                     "https://lemonadeblog.vercel.app/"
+ :site-url                     "https://lemonbird.vercel.app/"
  :blog-post-template           "post-template.html"
  :post-root                    "posts"
  :page-root                    "pages"

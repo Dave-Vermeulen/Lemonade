@@ -1,27 +1,26 @@
-{:title "About"
+{:title "About Lemonade Logic"  <!-- Changed from generic "About" -->
  :layout :page
- :page-index 0
+ :page-index 1
  :navbar? true}
 
-## Write something about something
+![Lemonade Logo](/themes/nucleus/images/logo.png)
 
-Hi! I'm Dawud. I live for build things.
+### 🍋 Our Story
 
-I embraced Islam in 1444 just before the month of Ramadan.
+Assalamu Alaikum! I'm Dawud - a Muslim convert (since 1444H), father, 
+self-taught developer, and eternal learner from South Africa 🇿🇦
 
-A father to a blessing that is always fun to be around.
+**My Journey**:
+- 👨💻 Coding adventurer (Clojure enthusiast!)
+- 👪 Proud father to an amazing little blessing
+- 🤵 Engaged to my best friend & partner-in-crime
+- 🏃♂️ Running enthusiast & community volunteer
+- ☕ Coffee addict (Let's connect over a cup!)
 
-Self taught developer. Would not recommend, its not for the feint of heart.
-
-Engaged to my best friend.
-
-Running and service to others is my dose of self love.
-
-Connecting with myself, others and Allah SWT.
-
-Currently serving and loving from sunny South Africa.
-
-if you reading this lets get coffee ☕
-
-[Check out my portfolio](https://dawudvermeulen.vercel.app/)
-
+### Tech Stack
+```clojure
+(defn stack []
+  (str "Clojure " 
+       "• Cryogen " 
+       "• Vercel "
+       "• Persistent Learning!"))

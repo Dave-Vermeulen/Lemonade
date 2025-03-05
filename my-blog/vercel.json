@@ -2,15 +2,16 @@
   "version": 2,
   "builds": [
     {
-      "src": "public/blog/**/*",
-      "use": "@vercel/static"
+      "src": "project.clj",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "public",
+        "buildCommand": "lein run"
+      }
     }
   ],
-  "build": {
-    "env": {
-      "JAVA_HOME": "/usr/lib/jvm/java-8-openjdk-amd64"
-    }
-  },
-  "installCommand": "curl -O https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein && chmod +x lein && ./lein"
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
 }
-

@@ -5,7 +5,7 @@
             :url "https://www.eclipse.org/legal/epl-2.0/"}
   :dependencies [[org.clojure/clojure "1.11.1"]
                [org.postgresql/postgresql "42.5.4"]
-               [clj-postgresql "0.7.0"]
+               [org.clojure/java.jdbc "0.7.12"]
                [ring/ring-core "1.9.6"]
                [ring/ring-json "0.5.1"]
                [ring/ring-jetty-adapter "1.9.6"]

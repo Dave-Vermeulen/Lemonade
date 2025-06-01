@@ -1,23 +1,35 @@
 (ns blog-backend.core
-  (:require [clj-postgresql.core :as pg]
+  (:require [clojure.java.jdbc :as jdbc]
             [ring.adapter.jetty :as jetty]
             [compojure.core :refer [defroutes GET]]
             [compojure.route :as route]
-            [ring.middleware.json :refer [wrap-json-response]])
+            [ring.middleware.json :refer [wrap-json-response wrap-json-body]])
   (:gen-class))
 ;; This is the main entry point for the blog-backend application.
 
 (def db-spec
   {:dbtype "postgresql"
-   :dbname "blog_db"
-   :host "localhost"
-   :port 5432
-   :user "postgres"
-   :password "12345"})
+   :dbname (or (System/getenv "DB_NAME") "blog_db")
+   :host (or (System/getenv "DB_HOST") "localhost")
+   :port (or (System/getenv "DB_PORT") "5432")
+   :user (or (System/getenv "DB_USER") "postgres")
+   :password (or (System/getenv "DB_PASSWORD") "12345")})
 
-;; query)
+(defn test-connection []
+  (try
+    (jdbc/get-connection db-spec)
+    (println "✅ DATABASE CONNECTION SUCCESSFUL")
+    (catch Exception e
+      (println "❌ CONNECTION FAILED:" (.getMessage e)))))
+
+(defn pg-array->vec [pg-array]
+  (when pg-array
+    (vec (.getArray pg-array))))
+
+;; query
 (defn get-posts []
- (pg/query db-spec ["SELECT * FROM posts"]))
+  (->> (jdbc/query db-spec ["SELECT * FROM posts"])
+       (map #(update % :tags pg-array->vec))))
 
 ;;Routes
 (defroutes app-routes
@@ -30,4 +42,6 @@
       (wrap-json-response {:pretty true :escape-non-ascii true})))
 
 (defn -main [& args]
+  (test-connection)
+  (println "Starting Jetty server on port 3000")
   (jetty/run-jetty app {:port 3000 :join? false}))

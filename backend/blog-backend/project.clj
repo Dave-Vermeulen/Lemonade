@@ -11,6 +11,7 @@
                [ring/ring-jetty-adapter "1.9.6"]
                [compojure "1.6.2"]
                [hiccup "2.0.0-alpha2"]
+               [ring-cors "0.1.13"]
                [buddy/buddy-auth "3.0.323"]
                [buddy/buddy-hashers "1.8.1"]]
   :main ^:skip-aot blog-backend.core

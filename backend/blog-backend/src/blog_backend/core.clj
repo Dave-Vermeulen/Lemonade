@@ -3,7 +3,8 @@
             [ring.adapter.jetty :as jetty]
             [compojure.core :refer [defroutes GET]]
             [compojure.route :as route]
-            [ring.middleware.json :refer [wrap-json-response wrap-json-body]])
+            [ring.middleware.json :refer [wrap-json-response wrap-json-body]]
+            [ring.middleware.cors :refer [wrap-cors]])
   (:gen-class))
 ;; This is the main entry point for the blog-backend application.
 
@@ -38,6 +39,8 @@
 
 (def app
   (-> app-routes
+      (wrap-cors :access-control-allow-origin [#"http://localhost:3449"] ; Frontend port
+                 :access-control-allow-methods [:get :post])
       (wrap-json-body {:keywords? true})
       (wrap-json-response {:pretty true :escape-non-ascii true})))
 

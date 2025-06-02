@@ -1,2 +1,53 @@
-/* some style */
+body {
+  background-color: #0f0f23;
+  color: #00cc00;
+  font-family: 'Courier New', monospace;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
+.retro-header {
+  border-bottom: 2px dashed #00cc00;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+
+.retro-title {
+  color: #ffff66;
+  text-shadow: 0 0 5px rgba(255, 255, 102, 0.5);
+}
+
+.retro-box {
+  border: 1px solid #00cc00;
+  padding: 20px;
+  margin-bottom: 30px;
+  background-color: rgba(0, 68, 0, 0.2);
+  box-shadow: 0 0 10px rgba(0, 204, 0, 0.2);
+}
+
+.retro-meta {
+  color: #00cccc;
+  font-size: 0.9em;
+  margin: 10px 0;
+}
+
+.retro-footer {
+  margin-top: 15px;
+  text-align: right;
+}
+
+.retro-loading, .retro-error {
+  padding: 30px;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+a {
+  color: #66ffff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

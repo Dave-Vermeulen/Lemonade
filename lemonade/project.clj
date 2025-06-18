@@ -8,7 +8,9 @@
                 [ring/ring-jetty-adapter "1.9.6"]
                 [compojure "1.7.0"]
                 [hiccup "1.0.5"]
-                [ring/ring-defaults "0.3.4"]]
+                [ring/ring-core "1.9.6"]
+                [ring/ring-defaults "0.3.4"]
+                [garden "1.3.10"]]
   :main ^:skip-aot lemonade.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all

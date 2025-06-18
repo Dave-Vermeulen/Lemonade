@@ -9,107 +9,188 @@
   (:gen-class))
 
 (def posts
-  [{:id 1 :title "Oh Hello there Clojure!" :content "This is my first post using Clojure!"}
-   {:id 2 :title "Functional first!" :content "Clojure was the one that showed me that immutable data is a thing and OOP Java is not everything"}])
+  [{:id 1 :title "Oh Hello there Clojure!" :content "This is my first post using Clojure! It's just supposed to be a test while I write some code to get this blog up and running. As I'm still getting the hang of the language the plan is to build with just the basics to get the blog up and running. Once the MVP is in production we will begin work on the next iteration using more advanced features of Clojure and ClojureScript. I hope you enjoy the strugglesome journey as much as I do!"}
+   {:id 2 :title "Functional first!" :content "Clojure was the one that showed me that immutable data is a thing and OOP Java is not everything. Cause Java was my first, my native, my be all and end all. I was a Java developer for 10 years before I discovered Clojure. And it was a revelation! I learned that functional programming is not just a buzzword, it's a way of thinking about problems that leads to simpler, more maintainable code. Clojure's emphasis on immutability and pure functions has changed the way I approach software development."}
+   {:id 3 :title "ClojureScript is the future!" :content "ClojureScript is the best thing since sliced bread! It allows you to write Clojure code that compiles to JavaScript, which means you can use all the power of Clojure in your web applications. The REPL-driven development experience is fantastic, and the ability to use Clojure's powerful data structures and functions in the browser is a game changer."}])
 
 (def styles
   (css 
+    [:root {:--black "#080708"
+            :--blue "#3772ff"
+            :--poppy "#df2935"
+            :--sunglow "#fdca40"
+            :--platinum "#e6e8e6"
+            :--transition "all 0.3s ease"}]
+    
     [:body {:font-family "'Inter', -apple-system, sans-serif"
             :line-height "1.6"
-            :color "#2d3748"
-            :max-width "800px"
+            :color "var(--black)"
+            :max-width "min(800px, 95%)"
             :margin "0 auto"
             :padding "20px"
-            :background-color "#f7fafc"}]
+            :background-color "var(--platinum)"}]
     
     [:.header {:text-align "center"
                :margin-bottom "3rem"
-               :padding "2rem 0"
-               :border-bottom "2px solid #e2e8f0"}]
+               :padding "3rem 1rem"
+               :background "var(--blue)"
+               :border-radius "12px"
+               :box-shadow "0 4px 12px rgba(0,0,0,0.1)"
+               :color "white"
+               :margin-top "1rem"}]
     
-    [:.site-title {:color "#1a202c"
-                   :font-size "2.5rem"
-                   :font-weight "700"
-                   :margin "0"}]
+    [:.site-title {:color "var(--sunglow)"
+                   :font-size "clamp(2.2rem, 5vw, 3.2rem)"
+                   :font-weight "800"
+                   :margin "0"
+                   :letter-spacing "-0.025em"
+                   :text-shadow "0 2px 4px rgba(0,0,0,0.2)"}]
     
-    [:.subtitle {:color "#718096"
-                 :font-size "1.1rem"
-                 :margin "0.5rem 0 0 0"}]
+    [:.subtitle {:color "rgba(255,255,255,0.9)"
+                 :font-size "clamp(1.1rem, 3vw, 1.3rem)"
+                 :margin "0.5rem 0 0 0"
+                 :font-weight "500"
+                 :max-width "600px"
+                 :margin-left "auto"
+                 :margin-right "auto"}]
     
     [:.post-list {:display "grid"
-                  :gap "1.5rem"}]
+                  :gap "1.8rem"
+                  :grid-template-columns "repeat(auto-fill, minmax(300px, 1fr))"
+                  :margin-top "2rem"}]
     
     [:.post-card {:background "white"
                   :border-radius "12px"
-                  :padding "1.5rem"
-                  :box-shadow "0 4px 6px rgba(0,0,0,0.1)"
-                  :transition "transform 0.2s, box-shadow 0.2s"
-                  :border "1px solid #e2e8f0"}
-     [:&:hover {:transform "translateY(-2px)"
-                :box-shadow "0 8px 15px rgba(0,0,0,0.15)"}]]
+                  :padding "1.8rem"
+                  :box-shadow "0 4px 10px rgba(0,0,0,0.05)"
+                  :transition "var(--transition)"
+                  :border-left "4px solid var(--sunglow)"}
+     [:&:hover {:transform "translateY(-6px)"
+                :box-shadow "0 8px 20px rgba(0,0,0,0.1)"}]]
     
-    [:.post-title {:margin "0 0 0.5rem 0"
-                   :font-size "1.5rem"
-                   :font-weight "600"}
-     [:a {:color "#2d3748"
-          :text-decoration "none"}
-      [:&:hover {:color "#4299e1"}]]]
+    [:.post-title {:margin "0 0 0.8rem 0"
+                   :font-size "1.6rem"
+                   :font-weight "700"
+                   :color "var(--blue)"
+                   :border-bottom "2px solid var(--sunglow)"
+                   :padding-bottom "0.4rem"
+                   :display "inline-block"}
+     [:a {:color "var(--blue)"
+          :text-decoration "none"
+          :transition "var(--transition)"}
+      [:&:hover {:color "var(--poppy)"
+                 :text-decoration "none"
+                 :border-bottom-color "var(--poppy)"}]]]
     
-    [:.post-preview {:color "#718096"
-                     :margin "0"}]
+    [:.post-preview {:color "#444"
+                     :margin "0"
+                     :line-height "1.7"}]
     
     [:.post-content {:background "white"
                      :border-radius "12px"
-                     :padding "2rem"
-                     :box-shadow "0 4px 6px rgba(0,0,0,0.1)"
-                     :margin-bottom "2rem"}]
+                     :padding "2.5rem"
+                     :box-shadow "0 6px 18px rgba(0,0,0,0.05)"
+                     :margin-bottom "2.5rem"
+                     :border-left "5px solid var(--blue)"}]
     
     [:.back-link {:display "inline-block"
-                  :color "#4299e1"
+                  :background "var(--sunglow)"
+                  :color "var(--black)"
                   :text-decoration "none"
-                  :font-weight "500"
-                  :padding "0.5rem 1rem"
-                  :border "2px solid #4299e1"
-                  :border-radius "6px"
-                  :transition "all 0.2s"}
-     [:&:hover {:background-color "#4299e1"
-                :color "white"}]]
+                  :font-weight "600"
+                  :padding "0.9rem 1.8rem"
+                  :border-radius "8px"
+                  :transition "var(--transition)"
+                  :box-shadow "0 4px 8px rgba(253, 202, 64, 0.3)"
+                  :font-size "1.1rem"}
+     [:&:hover {:background-color "var(--blue)"
+                :color "white"
+                :transform "translateY(-2px)"
+                :box-shadow "0 6px 12px rgba(55, 114, 255, 0.4)"}]]
     
-    [:.post-full-title {:color "#1a202c"
-                        :font-size "2rem"
-                        :margin "0 0 1rem 0"}]
+    [:.post-full-title {:color "var(--blue)"
+                        :font-size "clamp(1.8rem, 5vw, 2.8rem)"
+                        :margin "0 0 1.8rem 0"
+                        :line-height "1.2"
+                        :padding-bottom "0.6rem"
+                        :border-bottom "3px solid var(--sunglow)"
+                        :display "inline-block"}]
     
-    [:.post-full-content {:font-size "1.1rem"
-                          :line-height "1.7"}]))
+    [:.post-full-content {:font-size "1.15rem"
+                          :line-height "1.8"
+                          :color "#333"}]
+    
+    [:.not-found {:text-align "center"
+                  :padding "4rem 2rem"}]
+    
+    [:.skip-link {:position "absolute"
+                  :top "-100px"
+                  :left "0"
+                  :background "var(--black)"
+                  :color "white"
+                  :padding "1rem"
+                  :z-index "1000"
+                  :transition "top 0.3s ease"}
+     [:&:focus {:top "0"}]]
+    
+    [:.tag-list {:display "flex"
+                 :gap "0.6rem"
+                 :margin "1.2rem 0"}]
+    
+    [:.tag {:background "var(--sunglow)"
+            :color "var(--black)"
+            :font-size "0.85rem"
+            :padding "0.3rem 0.9rem"
+            :border-radius "100px"
+            :font-weight "600"}]
+    
+    [".post-card, .post-content" {:transition "transform 0.3s ease, box-shadow 0.3s ease"}]
+    
+    ["@media (prefers-reduced-motion: reduce)" 
+     [:* {:transition "none !important"
+          :animation "none !important"
+          :transform "none !important"}]]
+    
+    ["@media (max-width: 600px)" 
+     [:.post-list {:grid-template-columns "1fr"}]
+     [:.header {:padding "2rem 1rem"}]
+     [:.post-content {:padding "1.8rem"}]
+     [:.back-link {:display "block" 
+                   :text-align "center"
+                   :margin "0 auto"
+                   :width "max-content"}]
+     [:.site-title {:font-size "2.4rem"}]
+     [:.subtitle {:font-size "1.1rem"}]]))
 
 (defn layout [title body]
-  (html5
+  (html5 {:lang "en"}
    [:head
     [:meta {:charset "utf-8"}]
     [:meta {:name "viewport" :content "width=device-width, initial-scale=1"}]
     [:meta {:name "description" :content "A vibrant Clojure blog exploring functional programming"}]
     [:link {:href "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" 
-             :rel "stylesheet"}]
-    [:title (str title " | Lemonade 🍋")]
-    [:link {:href "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" 
-             :rel "stylesheet"
-             :crossorigin "anonymous"}]
+            :rel "stylesheet"
+            :crossorigin "anonymous"}]
     [:link {:rel "preconnect" :href "https://fonts.gstatic.com"}]
+    [:title (str title " | Lemonade Blog 🍋")]
     [:style {:type "text/css"} styles]]
    [:body
-    [:a.skip-link {:href "#main"} "skip to "]]
-   [:body body]))
+    [:a.skip-link {:href "#main"} "Skip to main content"]
+    body]))
 
 (defn home-page []
-  (layout "My Clojure Blog"
+  (layout "My 🍋 Blog"
     [:div
      [:header.header
-      [:h1.site-title "My Clojure Blog"]
-      [:p.subtitle "Exploring functional programming, one problem at a time"]]
+      [:h1.site-title "Lemonade 🍋"]
+      [:p.subtitle "Refreshing takes on life and it's code."]]
      
-     [:main.post-list
+     [:main#main.post-list
       (for [post posts]
         [:article.post-card
+         [:div.tag-list
+          [:span.tag "Clojure"]
+          [:span.tag "Functional"]]
          [:h2.post-title 
           [:a {:href (str "/post/" (:id post))} (:title post)]]
          [:p.post-preview 
@@ -124,36 +205,37 @@
     (if post
       (layout (:title post)
         [:div
-         [:article.post-content
-          [:div.tag-list
-           [:span.tag "Clojure"]
-           [:span.tag "Functional"]
-           [:span.tag "Programming"]]
-          [:h1.post-full-title (:title post)]
-          [:div.post-full-content (:content post)]]
-         [:div {:style "text-align: center; margin-top: 2rem;"}
-          [:a.back-link {:href "/"} "← Back to all posts"]]])
+         [:main#main
+          [:article.post-content
+           [:div.tag-list
+            [:span.tag "Clojure"]
+            [:span.tag "Functional"]
+            [:span.tag "Programming"]]
+           [:h1.post-full-title (:title post)]
+           [:div.post-full-content (:content post)]]
+         [:div {:style "text-align: center; margin-top: 2.5rem;"}
+          [:a.back-link {:href "/"} "← Back to all posts"]]]])
       (layout "Not Found" 
-        [:div.post-content.not-found
-         [:h1 "Post not found"]
-         [:p "The post you're looking for doesn't exist."]
-         [:div {:style "margin-top: 2rem;"}
-          [:a.back-link {:href "/"} "← Back to all posts"]]]))))
+        [:main#main
+         [:div.post-content.not-found
+          [:h1 "Post not found"]
+          [:p "The post you're looking for doesn't exist."]
+          [:div {:style "margin-top: 2.5rem;"}
+           [:a.back-link {:href "/"} "← Back to all posts"]]]]))))
+
+(defn not-found-page []
+  (layout "Page Not Found"
+    [:main#main
+     [:div.post-content.not-found
+      [:h1 "404 - Page Not Found"]
+      [:p "The page you requested doesn't exist."]
+      [:div {:style "margin-top: 2.5rem;"}
+       [:a.back-link {:href "/"} "← Back to home"]]]]))
 
 (defroutes app-routes
   (GET "/" [] (home-page))
   (GET "/post/:id" [id] (post-page id))
-  (route/not-found 
-   (html5
-    [:head
-     [:title "Not Found"]
-     [:style styles]]
-    [:body
-     [:div.post-content.not-found
-      [:h1 "404 - Page Not Found"]
-      [:p "The page you requested doesnt exist. Voetsek!"]
-      [:div {:style "margin-top: 2rem;"}
-       [:a.back-link {:href "/"} "← Back to home"]]]])))
+  (route/not-found (not-found-page)))
 
 (def app
   (wrap-defaults app-routes site-defaults))

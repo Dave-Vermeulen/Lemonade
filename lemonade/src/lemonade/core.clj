@@ -2,6 +2,7 @@
   (:require [ring.adapter.jetty :refer [run-jetty]]
             [compojure.core :refer [defroutes GET]]
             [compojure.route :as route]
+            [hiccup.util :refer [raw-string]]
             [hiccup.core :refer [html]]
             [hiccup.page :refer [html5]]
             [ring.middleware.defaults :refer [wrap-defaults site-defaults]]
@@ -15,16 +16,19 @@
 
 (def styles
   (css 
-    [:root {:--black "#080708"
-            :--blue "#3772ff"
-            :--poppy "#df2935"
-            :--sunglow "#fdca40"
-            :--platinum "#e6e8e6"
-            :--transition "all 0.3s ease"}]
+    [:root {"--black" "#1c1c1c"
+            "--blue" "#3c69e7"
+            "--poppy" "#df2935"
+            "--sunglow" "#fdca40"
+            "--platinum" "#e6e8e6"
+            "--englishViolet" "#413c58" 
+            "--mintGreen" "#98ff98" 
+            "--fieryRed" "#ff4500" 
+            "--transition" "all 0.3s ease"}]
     
-    [:body {:font-family "'Inter', -apple-system, sans-serif"
+    [:body {:font-family "Lucida Console, 'Courier New', serif"
             :line-height "1.6"
-            :color "var(--black)"
+            :color "poppy"
             :max-width "min(800px, 95%)"
             :margin "0 auto"
             :padding "20px"
@@ -33,20 +37,20 @@
     [:.header {:text-align "center"
                :margin-bottom "3rem"
                :padding "3rem 1rem"
-               :background "var(--blue)"
+               :background "linear-gradient(45deg, var(--poppy), var(--englishViolet))"
                :border-radius "12px"
                :box-shadow "0 4px 12px rgba(0,0,0,0.1)"
-               :color "white"
+               :color "platinum"
                :margin-top "1rem"}]
     
-    [:.site-title {:color "var(--sunglow)"
+    [:.site-title {:color "black"
                    :font-size "clamp(2.2rem, 5vw, 3.2rem)"
                    :font-weight "800"
                    :margin "0"
                    :letter-spacing "-0.025em"
-                   :text-shadow "0 2px 4px rgba(0,0,0,0.2)"}]
+                   :text-shadow "0 2px 4px rgba(0,0,0,0.4)"}]
     
-    [:.subtitle {:color "rgba(255,255,255,0.9)"
+    [:.subtitle {:color "black"
                  :font-size "clamp(1.1rem, 3vw, 1.3rem)"
                  :margin "0.5rem 0 0 0"
                  :font-weight "500"
@@ -54,12 +58,18 @@
                  :margin-left "auto"
                  :margin-right "auto"}]
     
+    [:.code-highlight {:background "var(--mintGreen)"
+                        :color "var(--black)"
+                        :padding "0.5rem 1rem"
+                        :border-radius "6px"
+                        :font-family "'Courier New', monospace"}]
+    
     [:.post-list {:display "grid"
                   :gap "1.8rem"
                   :grid-template-columns "repeat(auto-fill, minmax(300px, 1fr))"
                   :margin-top "2rem"}]
     
-    [:.post-card {:background "white"
+    [:.post-card {:background "var(--platinum)"
                   :border-radius "12px"
                   :padding "1.8rem"
                   :box-shadow "0 4px 10px rgba(0,0,0,0.05)"
@@ -78,9 +88,9 @@
      [:a {:color "var(--blue)"
           :text-decoration "none"
           :transition "var(--transition)"}
-      [:&:hover {:color "var(--poppy)"
+      [:&:hover {:color "var(--fieryRed)"
                  :text-decoration "none"
-                 :border-bottom-color "var(--poppy)"}]]]
+                 :border-bottom-color "var(--fieryRed)"}]]]
     
     [:.post-preview {:color "#444"
                      :margin "0"
@@ -94,7 +104,7 @@
                      :border-left "5px solid var(--blue)"}]
     
     [:.back-link {:display "inline-block"
-                  :background "var(--sunglow)"
+                  :background "var(--poppy)"
                   :color "var(--black)"
                   :text-decoration "none"
                   :font-weight "600"
@@ -173,7 +183,7 @@
             :crossorigin "anonymous"}]
     [:link {:rel "preconnect" :href "https://fonts.gstatic.com"}]
     [:title (str title " | Lemonade Blog 🍋")]
-    [:style {:type "text/css"} styles]]
+    [:style {:type "text/css"} (raw-string styles)]]
    [:body
     [:a.skip-link {:href "#main"} "Skip to main content"]
     body]))

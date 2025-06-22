@@ -10,9 +10,9 @@
   (:gen-class))
 
 (def posts
-  [{:id 1 :title "Oh Hello there Clojure!" :content "This is my first post using Clojure! It's just supposed to be a test while I write some code to get this blog up and running. As I'm still getting the hang of the language the plan is to build with just the basics to get the blog up and running. Once the MVP is in production we will begin work on the next iteration using more advanced features of Clojure and ClojureScript. I hope you enjoy the strugglesome journey as much as I do!"}
-   {:id 2 :title "Functional first!" :content "Clojure was the one that showed me that immutable data is a thing and OOP Java is not everything. Cause Java was my first, my native, my be all and end all. I was a Java developer for 10 years before I discovered Clojure. And it was a revelation! I learned that functional programming is not just a buzzword, it's a way of thinking about problems that leads to simpler, more maintainable code. Clojure's emphasis on immutability and pure functions has changed the way I approach software development."}
-   {:id 3 :title "ClojureScript is the future!" :content "ClojureScript is the best thing since sliced bread! It allows you to write Clojure code that compiles to JavaScript, which means you can use all the power of Clojure in your web applications. The REPL-driven development experience is fantastic, and the ability to use Clojure's powerful data structures and functions in the browser is a game changer."}])
+  [{:id 1 :title "Oh Hello there Clojure!" :content "This is my first post using Clojure! It's just supposed to be a test while I write some code to get this blog up and running. As I'm still getting the hang of the language the plan is to build with just the basics to get the blog up and running. Once the MVP is in production we will begin work on the next iteration using more advanced features of Clojure and ClojureScript. I hope you enjoy the strugglesome journey as much as I do!" :tags ["Clojure" "Functional"]}
+   {:id 2 :title "Functional first!" :content "Clojure was the one that showed me that immutable data is a thing and OOP Java is not everything. Cause Java was my first, my native, my be all and end all. I was a Java developer for 10 years before I discovered Clojure. And it was a revelation! I learned that functional programming is not just a buzzword, it's a way of thinking about problems that leads to simpler, more maintainable code. Clojure's emphasis on immutability and pure functions has changed the way I approach software development." :tags ["Functional"]}
+   {:id 3 :title "ClojureScript is the future!" :content "ClojureScript is the best thing since sliced bread! It allows you to write Clojure code that compiles to JavaScript, which means you can use all the power of Clojure in your web applications. The REPL-driven development experience is fantastic, and the ability to use Clojure's powerful data structures and functions in the browser is a game changer." :tags ["Parenting" "SLAA"]}])
 
 (def styles
   (css 
@@ -114,7 +114,7 @@
                   :box-shadow "0 4px 8px rgba(253, 202, 64, 0.3)"
                   :font-size "1.1rem"}
      [:&:hover {:background-color "var(--blue)"
-                :color "white"
+                :color "sunglow"
                 :transform "translateY(-2px)"
                 :box-shadow "0 6px 12px rgba(55, 114, 255, 0.4)"}]]
     
@@ -144,7 +144,7 @@
      [:&:focus {:top "0"}]]
     
     [:.tag-list {:display "flex"
-                 :gap "0.6rem"
+                 :gap "0.4rem"
                  :margin "1.2rem 0"}]
     
     [:.tag {:background "var(--sunglow)"
@@ -199,8 +199,8 @@
       (for [post posts]
         [:article.post-card
          [:div.tag-list
-          [:span.tag "Clojure"]
-          [:span.tag "Functional"]]
+          (for [tag (:tags post)]
+            [:span.tag tag])]
          [:h2.post-title 
           [:a {:href (str "/post/" (:id post))} (:title post)]]
          [:p.post-preview 
@@ -218,9 +218,8 @@
          [:main#main
           [:article.post-content
            [:div.tag-list
-            [:span.tag "Clojure"]
-            [:span.tag "Functional"]
-            [:span.tag "Programming"]]
+            (for [tag (:tags post)]
+              [:span.tag tag])]
            [:h1.post-full-title (:title post)]
            [:div.post-full-content (:content post)]]
          [:div {:style "text-align: center; margin-top: 2.5rem;"}

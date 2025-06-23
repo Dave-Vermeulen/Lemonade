@@ -8,7 +8,6 @@
                 [ring/ring-jetty-adapter "1.9.6"]
                 [compojure "1.7.0"]
                 [hiccup "2.0.0-alpha2"]
-                [ring/ring-core "1.9.6"]
                 [ring/ring-defaults "0.3.4"]
                 [garden "1.3.10"]]
   :main ^:skip-aot lemonade.core

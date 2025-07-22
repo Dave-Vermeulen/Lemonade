@@ -103,7 +103,7 @@
             :margin "0 auto"
             :padding "20px"
             :background-color "var(--platinum)"}]
-    
+
     [:.header {:text-align "center"
                :margin-bottom "3rem"
                :padding "3rem 1rem"
@@ -146,9 +146,9 @@
                   :border-left "4px solid var(--sunglow)"}
      [:&:hover {:transform "translateY(-6px)"
                 :box-shadow "0 8px 20px rgba(0,0,0,0.1)"}]]
-    
+
     [:.post-title {:margin "0 0 0.8rem 0"
-                   :font-size "1.6rem"
+                   :font-size "1.8rem"
                    :font-weight "700"
                    :color "var(--blue-dark)"
                    :border-bottom "2px solid var(--sunglow)"
@@ -164,14 +164,14 @@
     [:.post-preview {:color "#444"
                      :margin "0"
                      :line-height "1.7"}]
-    
+
     [:.post-content {:background "white"
                      :border-radius "12px"
                      :padding "2.5rem"
                      :box-shadow "0 6px 18px rgba(0,0,0,0.05)"
                      :margin-bottom "2.5rem"
                      :border-left "5px solid var(--blue)"}]
-    
+
     [:.back-link {:display "inline-block"
                   :background "var(--blue-light)"
                   :color "var(--white)"
@@ -194,14 +194,14 @@
                         :padding-bottom "0.6rem"
                         :border-bottom "3px solid var(--sunglow)"
                         :display "inline-block"}]
-    
+
     [:.post-full-content {:font-size "1.15rem"
                           :line-height "1.8"
                           :color "#333"}]
-    
+
     [:.not-found {:text-align "center"
                   :padding "4rem 2rem"}]
-    
+
     [:.skip-link {:position "absolute"
                   :top "-100px"
                   :left "0"
@@ -209,9 +209,10 @@
                   :color "white"
                   :padding "1rem"
                   :z-index "1000"
-                  :transition "top 0.3s ease"}
-     [:&:focus {:top "0"}]]
-    
+                  :transition "top 0.3s ease"}]
+
+    [:.skip-link:focus {:top "0"}]
+
     [:.tag-list {:display "flex"
                  :flex-wrap "wrap"
                  :gap "0.4rem"
@@ -225,14 +226,14 @@
             :padding "0.3rem 0.9rem"
             :border-radius "100px"
             :font-weight "600"}]
-    
+
     [".post-card, .post-content" {:transition "transform 0.3s ease, box-shadow 0.3s ease"}]
-    
+
     ["@media (prefers-reduced-motion: reduce)" 
      [:* {:transition "none !important"
           :animation "none !important"
           :transform "none !important"}]]
-    
+
     ["@media (max-width: 600px)" 
      [:.post-list {:grid-template-columns "1fr"}]
      [:.header {:padding "2rem 1rem"}]
